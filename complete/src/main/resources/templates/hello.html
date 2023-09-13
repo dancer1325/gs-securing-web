@@ -6,6 +6,12 @@
     </head>
     <body>
         <h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
+
+        <!-- Under click the input under the form ->
+            1. trigger a POST to /logout
+            2. securityFilterChain() is invoked
+                2.1 if it's succeed ->  redirected to /login?logout
+                2.2 else -> ? -->
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
         </form>
