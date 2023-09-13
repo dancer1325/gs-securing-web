@@ -121,4 +121,6 @@ image::{images}/greeting.png[The secured greeting page]
 * If you click on the *Sign Out* button -> authentication is revoked, and you are
 returned to the login page with a message indicating that you are logged out.
 
-
+[[initial]]
+== Notes
+* TODO: How to run in debug mode ?
