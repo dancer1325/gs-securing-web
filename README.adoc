@@ -85,51 +85,40 @@ with "`basic`" authentication.
         *** `@EnableWebSecurity`
             **** enable Spring Security's web security support
             **** provide Spring MVC integration
-            **** `SecurityFilterChain` defines which URL paths should be secured and which not
-            **** `UserDetailsService` sets up an in-memory user store
+        *** `SecurityFilterChain` defines which URL paths should be secured and which not
+        *** `UserDetailsService` sets up an in-memory user store
 * You can further customize the security settings.
 
 
 [[run_the_app]]
 == How to run the Application
 
-The Spring Initializr creates an application class for you. In this case, you need not
-modify the class. The following listing (from
-`src/main/java/com/example/securingweb/SecuringWebApplication.java`) shows the application
-class:
-
-====
-[source,java]
-----
-include::complete/src/main/java/com/example/securingweb/SecuringWebApplication.java[]
-----
-====
-
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/build_an_executable_jar_subhead.adoc[]
+* Establish jdk 17.Y.Z as your environment variable
+* Check
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/build_an_executable_jar_with_both.adoc[]
-
-
-Once the application starts up, point your browser to `http://localhost:8080`. You should
-see the home page, as the following image shows:
+    ** For Gradle -- IN PROGRESS --
+    ** For Maven
+        *** via the maven wrapper
+            **** `./mvnw spring-boot:run` -- to run the application --
+            **** `./mvnw clean package` -- to build the JAR file --, and then `java -jar target/{project_id}-0.1.0.jar` -- to run the JAR file --
+        *** via maven installed by you locally previously
+            **** `mvn spring-boot:run` -- to run the application --
+            **** `mvn clean package` -- to build the JAR file --, and then `java -jar target/{project_id}-0.1.0.jar` -- to run the JAR file --
+* Once it has been started
+* Open your browser in `http://localhost:8080` to see the home page:
 
 image::{images}/home.png[The application's home page]
-
-When you click on the link, it attempts to take you to the greeting page at `/hello`.
-However, because that page is secured and you have not yet logged in, it takes you to the
-login page, as the following image shows:
+* If you click on the link -> it attempts to redirect to `/hello`
+    ** Since that page is secured and you have not yet logged in, it redirects to the
+login page
 
 image::{images}/login.png[The login page]
 
-NOTE: If you jumped down here with the unsecured version, you do not see the login page.
-You should back up and write the rest of the security-based code.
-
-At the login page, sign in as the test user by entering `user` and `password` for the
-username and password fields, respectively. Once you submit the login form, you are
-authenticated and then taken to the greeting page, as the following image shows:
+* If you enter `user` and `password` in the fields -> you are authenticated and then redirected to the greeting page
 
 image::{images}/greeting.png[The secured greeting page]
 
-If you click on the *Sign Out* button, your authentication is revoked, and you are
+* If you click on the *Sign Out* button -> authentication is revoked, and you are
 returned to the login page with a message indicating that you are logged out.
 
 
