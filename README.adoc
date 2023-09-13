@@ -28,14 +28,14 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 == How can it be created from scratch?
 
 * Via Spring Initializer
-    * Already configured. You can use this https://start.spring.io/#!type=maven-project&language=java&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=securing-web&name=securing-web&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.securing-web&dependencies=web,thymeleaf[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
-    * From scratch.
-        * Navigate to https://start.spring.io.
-            * Choose either Gradle or Maven and the language you want to use. This guide assumes that you chose Java.
-            * Click *Dependencies* and select *Spring Web* and *Thymeleaf*.
-            * Click *Generate*.
-            * Download the resulting ZIP file, which is an archive of a web application that is configured with your choices.
-        * If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
+    ** Already configured. You can use this https://start.spring.io/#!type=maven-project&language=java&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=securing-web&name=securing-web&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.securing-web&dependencies=web,thymeleaf[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
+    ** From scratch.
+        *** Navigate to https://start.spring.io.
+            **** Choose either Gradle or Maven and the language you want to use. This guide assumes that you chose Java.
+            **** Click *Dependencies* and select *Spring Web* and *Thymeleaf*.
+            **** Click *Generate*.
+            **** Download the resulting ZIP file, which is an archive of a web application that is configured with your choices.
+        *** If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
 
 
 [[initial]]
