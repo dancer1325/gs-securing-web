@@ -25,62 +25,67 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/how_to_complete_this_guide.adoc[]
 
 [[scratch]]
-== How can it be created from scratch?
+== How to create this project?
 
-* Via Spring Initializer
-    ** Already configured. You can use this https://start.spring.io/#!type=maven-project&language=java&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=securing-web&name=securing-web&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.securing-web&dependencies=web,thymeleaf[pre-initialized project] and click Generate to download a ZIP file. This project is configured to fit the examples in this tutorial.
-    ** From scratch.
-        *** Navigate to https://start.spring.io.
-            **** Choose either Gradle or Maven and the language you want to use. This guide assumes that you chose Java.
-            **** Click *Dependencies* and select *Spring Web* and *Thymeleaf*.
-            **** Click *Generate*.
-            **** Download the resulting ZIP file, which is an archive of a web application that is configured with your choices.
-        *** If your IDE has the Spring Initializr integration, you can complete this process from your IDE.
+* Spring Initializer
+** Use this https://start.spring.io/#!type=maven-project&language=java&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=securing-web&name=securing-web&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.securing-web&dependencies=web,thymeleaf[pre-initialized project]
+* Manually, adding the dependencies
+** 'spring-web'
+** 'Thymeleaf'
 
-
-[[initial]]
-== Create an Unsecured Web Application
-
+== Structure
+### Initial
+* Unsecured Web Application
+    ** 'spring-boot-starter-thymeleaf'
+    ** 'spring-boot-starter-web'
 * Web application views
-    ** home page
-        *** Defined in `src/main/resources/templates/home.html` -- via Thymeleaf template --
-    ** "Hello, World" page
-       *** Defined in `src/main/resources/templates/hello.html` -- via Thymeleaf template --
-    ** login page
-        *** Defined in `src/main/resources/templates/login.html` -- via Thymeleaf template --
+** home page
+*** Defined in `src/main/resources/templates/home.html` -- via Thymeleaf template --
+** "Hello, World" page
+*** Defined in `src/main/resources/templates/hello.html` -- via Thymeleaf template --
+** login page
+*** Defined in `src/main/resources/templates/login.html` -- via Thymeleaf template --
 
 * Web application is based on Spring MVC
-    ** Configure Spring MVC
-    ** Set up view controllers to expose these templates
-        *** Defined in `src/main/java/com/example/securingweb/MvcConfig.java`
+** Configure Spring MVC
+** Set up view controllers to expose these templates
+*** Defined in `src/main/java/com/example/securingweb/MvcConfig.java`
 
-
-[[initial]]
-== Set up Spring Security
+### Complete
 
 * If Spring Security is on the classpath -> Spring Boot {SpringBootSecurity}[automatically secures all HTTP endpoints]
 with "`basic`" authentication.
-    ** Ways to add Spring Security to the classpath
-        *** With Gradle
-`implementation 'org.springframework.boot:spring-boot-starter-security'`
+* Dependencies
+    ** With Gradle
+```
+implementation 'org.springframework.boot:spring-boot-starter-security'
+```
+```
 //  Temporary explicit version to fix Thymeleaf bug
-`implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'`
-`implementation 'org.springframework.security:spring-security-test'`
-        *** With Maven
-`<dependency>
+implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE'
+```
+```
+implementation 'org.springframework.security:spring-security-test'
+```
+    ** With Maven
+```<dependency>
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter-security</artifactId>
-</dependency>`
-`<dependency>
+</dependency>
+```
+```
+<dependency>
 <groupId>org.thymeleaf.extras</groupId>
 <artifactId>thymeleaf-extras-springsecurity6</artifactId>
 <version>3.1.1.RELEASE</version>
-</dependency>`
-`<dependency>
+</dependency>
+```
+```<dependency>
 <groupId>org.springframework.security</groupId>
 <artifactId>spring-security-test</artifactId>
 <scope>test</scope>
-</dependency>`
+</dependency>
+```
     ** Apply security configuration -- `src/main/java/com/example/securingweb/WebSecurityConfig.java` --
         *** `@EnableWebSecurity`
             **** enable Spring Security's web security support
